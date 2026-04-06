@@ -19,8 +19,7 @@ export default function Login() {
     try {
       const endpoint = mode === 'register' ? '/api/auth/register' : '/api/auth/login'
       const body = mode === 'register' ? { password: pw } : { anonymous_id: anonId, password: pw }
-      const API_BASE = import.meta.env.VITE_API_URL || ''
-      const res = await fetch(`${API_BASE}${endpoint}`, {
+      const res = await fetch(endpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
       })

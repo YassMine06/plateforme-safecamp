@@ -4,8 +4,7 @@ export function useApi() {
   const { token, logout } = useAuth()
 
   const call = async (path, options = {}) => {
-    const API_BASE = import.meta.env.VITE_API_URL || ''
-    const res = await fetch(`${API_BASE}/api${path}`, {
+    const res = await fetch(`/api${path}`, {
       ...options,
       headers: {
         'Content-Type': 'application/json',
