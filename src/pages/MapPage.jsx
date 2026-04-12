@@ -92,7 +92,7 @@ export default function MapPage() {
         <span className="badge badge-blue">📍 {alerts.filter(a=>a.status!=='rejected').length} Incidents</span>
       </div>
 
-      <div style={{display:'grid',gridTemplateColumns:'1fr 290px',gap:16}}>
+      <div className="map-layout">
 
         {/* ── SVG MAP ── */}
         <div className="card" style={{padding:0,overflow:'hidden'}}>
@@ -406,7 +406,11 @@ export default function MapPage() {
           </div>
         </div>
       )}
-      <style>{`@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}`}</style>
+      <style>{`
+        @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+        .map-layout { display: grid; grid-template-columns: 1fr 290px; gap: 16px; }
+        @media (max-width: 900px) { .map-layout { grid-template-columns: 1fr; } }
+      `}</style>
     </div>
   )
 }
